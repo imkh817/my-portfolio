@@ -70,7 +70,7 @@ export default function BlogPage() {
           </p>
 
           <div className="flex flex-wrap gap-2 mt-8">
-            {['Spring Boot', 'Java', 'MySQL', 'Redis', 'QueryDSL', 'JPA', 'Vue.js', 'AWS'].map((t) => (
+            {['Spring Boot', 'Java', 'MySQL', 'Redis', 'Spring Security', 'Spring Data JPA', 'QueryDSL', 'AWS S3', 'JUnit', 'Test Container'].map((t) => (
               <span
                 key={t}
                 className="px-3 py-1 bg-indigo-500/10 text-indigo-300 text-xs rounded-full font-mono"
