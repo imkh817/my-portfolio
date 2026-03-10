@@ -1,10 +1,12 @@
-# 조건희 | 개발자 포트폴리오
+# 조건희 | 포트폴리오
 
-백엔드 개발자 조건희의 개인 포트폴리오 웹사이트입니다.
+개인 포트폴리오 웹사이트입니다. <br><br>
+[포트폴리오 확인하기](https://my-portfolio-kappa-seven-40.vercel.app/#projects)
+
 
 ## 소개
 
-실무 프로젝트와 사이드 프로젝트의 기술적 문제 해결 과정을 정리한 포트폴리오입니다.
+실무 프로젝트와 사이드 프로젝트의 기술적 문제 해결 과정을 정리한 포트폴리오입니다.<br>
 단순한 기능 나열이 아닌, 문제를 발견하고 해결한 과정 중심으로 구성했습니다.
 
 ## 프로젝트 구성
@@ -21,18 +23,6 @@
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS v4
 - **Animation**: Framer Motion
-
-## 시작하기
-
-```bash
-# 의존성 설치
-npm install
-
-# 개발 서버 실행
-npm run dev
-```
-
-개발 서버 실행 후 [http://localhost:3000](http://localhost:3000) 에서 확인할 수 있습니다.
 
 ## 폴더 구조
 
