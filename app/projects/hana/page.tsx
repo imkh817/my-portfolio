@@ -4,6 +4,10 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
+import { hanaAchievements } from '../../data/hana'
+import type { Achievement } from '../../data/types'
+
+const achievements = hanaAchievements
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -25,60 +29,6 @@ function Section({ children, className = '' }: { children: React.ReactNode; clas
     </motion.div>
   )
 }
-
-type Achievement = {
-  number: string
-  title: string
-  problem: string[]
-  approach: string[]
-  result: string[]
-  tags: string[]
-}
-
-const achievements: Achievement[] = [
-  {
-    number: '01',
-    title: '운영 배치 프로그램 안정성 개선',
-    problem: [
-      '운영 중이던 배치 프로그램은 장비 상태를 일괄 갱신하고, 다음날 수행될 모니터링 시험을 자동 생성하는 역할을 담당하고 있었습니다.',
-      'DB 부하나 네트워크 지연 같은 일시적인 오류가 발생할 경우 배치가 즉시 실패·종료되는 구조였습니다.',
-      '실패 여부를 즉시 인지할 수단이 없어 운영 단계에서 로그를 직접 확인해야만 상황을 파악할 수 있었습니다.',
-    ],
-    approach: [
-      '기존 Spring @Scheduled 기반 구조를 유지해 변경 범위를 최소화',
-      '예외 발생 시 즉시 종료하지 않고 자동 재시도 수행, 최대 3회로 제한하여 무한 재시도 방지',
-      '재시도 간 간격을 두어 일시적인 장애의 자연 회복 가능성 확보',
-      '재시도 이후에도 실패 시 배치 식별 정보·실행 시각·실패 원인을 포함한 회사 메일 알림 발송',
-      'Quartz 등 별도 스케줄러 도입 없이 기존 구조를 유지하여 도입 복잡도 최소화',
-    ],
-    result: [
-      '일시적인 장애에도 배치가 자동으로 복구를 시도하는 구조가 확보되었습니다.',
-      '반복 실패 시 즉시 알림을 통해 운영자가 빠르게 대응할 수 있게 되었습니다.',
-    ],
-    tags: ['Spring Batch', '@Scheduled', 'Retry', 'Mail Notification'],
-  },
-  {
-    number: '02',
-    title: '도메인 책임 분리 및 전략 패턴 적용을 통한 복잡한 비즈니스 로직 개선',
-    problem: [
-      'LIMS 특성상 하나의 기능에 5~10개 이상의 테이블이 연관되고, 시험 유형·판정 방식·상태에 따른 다수의 조건 분기가 존재했습니다.',
-      '초기 구조에서는 상태 변경 규칙이 여러 서비스에 분산되어 중복과 불일치 가능성이 있었습니다.',
-      '서비스 레이어에 if-else 분기가 누적되어 메서드가 비대해지고 변경 시 영향 범위 예측이 어려웠습니다.',
-    ],
-    approach: [
-      '상태와 규칙을 가진 도메인이 스스로 상태를 변경하도록 구조 재설계',
-      '시험 의뢰·시험 결과 등 상태를 가지는 개념에 상태 전이 규칙과 검증 로직을 도메인 내부로 이동',
-      '서비스는 상태 변경을 "요청"만 하고, 변경 가능 여부 판단과 전이 규칙은 도메인이 책임지도록 분리',
-      '시험 유형별 결과 처리 로직을 공통 인터페이스로 정의하고 유형별 전략 클래스로 분리 (전략 패턴 적용)',
-      '조건 분기가 늘어나도 기존 코드 수정 없이 전략 클래스 추가만으로 확장 가능한 구조 확보',
-    ],
-    result: [
-      '서비스 레이어에 집중되던 조건 분기와 상태 변경 로직이 도메인과 전략 클래스로 분산되어 가독성과 변경 용이성이 개선되었습니다.',
-      '신규 시험 유형 추가 시 기존 코드 수정 없이 전략 클래스 추가만으로 확장 가능한 구조가 되었습니다.',
-    ],
-    tags: ['Domain Design', 'Strategy Pattern', 'OCP', 'Refactoring'],
-  },
-]
 
 export default function HanaPage() {
   return (

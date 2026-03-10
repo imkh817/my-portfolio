@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { aboutInfo } from '../data/about'
 
 export default function About() {
   const ref = useRef(null)
@@ -45,13 +46,7 @@ export default function About() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="space-y-4"
           >
-            {/* TODO: 정보를 채워넣으세요 */}
-            {[
-              { label: '이름', value: '조건희' },
-              { label: '이메일', value: 'devkunhee0817@gmail.com' },
-              { label: '위치', value: '서울, 대한민국' },
-              { label: 'GitHub', value: 'github.com/imkh817', href: 'https://github.com/imkh817' },
-            ].map((item) => (
+            {aboutInfo.map((item) => (
               <div
                 key={item.label}
                 className="flex gap-4 text-sm border-b border-zinc-800 pb-4"
