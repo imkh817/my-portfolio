@@ -5,7 +5,7 @@ export const blogOverview = {
   description1: '직접 사용하기 위해 만든 블로그 서비스.',
   description2: '단순 기능 구현을 넘어 성능 병목, 동시성, 보안 이슈를 직접 발견하고 해결하는 과정에 집중했습니다.',
   description3: '테스트 코드로 문제를 재현하고, 지표로 결과를 검증하는 방식으로 개발했습니다.',
-  tech: ['Spring Boot', 'Java', 'MySQL', 'Redis', 'QueryDSL', 'JPA', 'Vue.js', 'AWS'],
+  tech: ['Spring Boot', 'Java', 'MySQL', 'Redis', 'Spring Security', 'Spring Data JPA', 'QueryDSL', 'AWS S3', 'JUnit', 'Test Container'],
 }
 
 export const blogFeatures: string[] = [

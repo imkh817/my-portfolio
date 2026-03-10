@@ -31,7 +31,7 @@ export const projects: Project[] = [
     title: '개인 블로그 플랫폼',
     description:
       '직접 사용하기 위해 만든 블로그 서비스. 단순 기능 구현을 넘어 성능 병목, 동시성, 보안 이슈를 직접 발견하고 해결하는 과정에 집중했습니다.',
-    tech: ['Spring Boot', 'Java', 'MySQL', 'Redis', 'Spring Security', 'QueryDSL', 'Vue.js'],
+    tech: ['Spring Boot', 'Java', 'MySQL', 'Redis', 'Spring Security', 'Spring Data JPA', 'QueryDSL', 'AWS S3', 'JUnit', 'Test Container'],
     highlights: [
       '게시글 검색 API 최적화 (응답속도 11배 개선)',
       'Redis 조회수 동시성 및 정합성 처리',
