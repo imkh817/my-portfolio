@@ -4,10 +4,10 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
-import { blogAchievements, blogFeatures, blogOverview } from '../../data/blog'
+import { billmateAchievements, billmateFeatures, billmateOverview } from '../../data/billmate'
 import type { Achievement } from '../../data/types'
 
-const achievements = blogAchievements
+const achievements = billmateAchievements
 
 const fadeUp = {
   hidden: { opacity: 0, y: 24 },
@@ -30,7 +30,7 @@ function Section({ children, className = '' }: { children: React.ReactNode; clas
   )
 }
 
-export default function BlogPage() {
+export default function BillMatePage() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* 상단 네비 */}
@@ -43,7 +43,7 @@ export default function BlogPage() {
             ← 돌아가기
           </Link>
           <span className="text-zinc-700">|</span>
-          <span className="text-zinc-300 text-sm">개인 블로그 플랫폼</span>
+          <span className="text-zinc-300 text-sm">BillMate</span>
         </div>
       </div>
 
@@ -55,49 +55,24 @@ export default function BlogPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <p className="text-indigo-400 text-sm font-mono mb-3">사이드 프로젝트</p>
+          <p className="text-indigo-400 text-sm font-mono mb-3">{billmateOverview.tag}</p>
           <h1 className="text-4xl sm:text-5xl font-bold text-white tracking-tight mb-6">
-            개인 블로그 플랫폼
+            BillMate
           </h1>
           <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl mb-2">
-            직접 사용하기 위해 만든 블로그 서비스.
+            {billmateOverview.description1}
           </p>
           <p className="text-zinc-400 text-lg leading-relaxed max-w-2xl mb-2">
-            단순 기능 구현을 넘어 성능 병목, 동시성, 보안 이슈를 직접 발견하고 해결하는 과정에 집중했습니다.
+            {billmateOverview.description2}
           </p>
           <p className="text-zinc-500 text-base leading-relaxed max-w-2xl">
-            테스트 코드로 문제를 재현하고, 지표로 결과를 검증하는 방식으로 개발했습니다.
+            {billmateOverview.description3}
           </p>
 
-          <div className="flex flex-wrap gap-4 mt-8">
-            <a
-              href={blogOverview.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-400 hover:text-white text-sm transition-colors"
-            >
-              GitHub ↗
-            </a>
-            <a
-              href={blogOverview.links.docs}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-400 hover:text-white text-sm transition-colors"
-            >
-              Docs ↗
-            </a>
-            <a
-              href={blogOverview.links.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-zinc-400 hover:text-white text-sm transition-colors"
-            >
-              Live ↗
-            </a>
-          </div>
+          <p className="text-zinc-600 text-sm font-mono mt-4">{billmateOverview.period}</p>
 
           <div className="flex flex-wrap gap-2 mt-6">
-            {['Spring Boot', 'Java', 'MySQL', 'Redis', 'QueryDSL', 'JPA', 'Vue.js', 'AWS'].map((t) => (
+            {billmateOverview.tech.map((t) => (
               <span
                 key={t}
                 className="px-3 py-1 bg-indigo-500/10 text-indigo-300 text-xs rounded-full font-mono"
@@ -106,6 +81,33 @@ export default function BlogPage() {
               </span>
             ))}
           </div>
+
+          <div className="flex flex-wrap gap-4 mt-6">
+            <a
+              href={billmateOverview.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-400 hover:text-white text-sm transition-colors"
+            >
+              GitHub ↗
+            </a>
+            <a
+              href={billmateOverview.links.docs}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-400 hover:text-white text-sm transition-colors"
+            >
+              Docs ↗
+            </a>
+            <a
+              href={billmateOverview.links.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-zinc-400 hover:text-white text-sm transition-colors"
+            >
+              Live ↗
+            </a>
+          </div>
         </motion.div>
 
         {/* 주요 기능 요약 */}
@@ -113,7 +115,7 @@ export default function BlogPage() {
           <h2 className="text-sm font-mono text-indigo-400 mb-2">Features</h2>
           <h3 className="text-2xl font-bold text-white mb-6">주요 기능</h3>
           <div className="grid sm:grid-cols-2 gap-3">
-            {blogFeatures.map((feature) => (
+            {billmateFeatures.map((feature) => (
               <div
                 key={feature}
                 className="flex items-center gap-3 bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3.5 text-sm text-zinc-300"

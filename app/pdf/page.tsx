@@ -4,6 +4,7 @@ import { projects as summaryProjects } from '../data/projects'
 import { limsAchievements, limsOverview } from '../data/lims'
 import { hanaAchievements, hanaOverview } from '../data/hana'
 import { blogAchievements, blogFeatures, blogOverview } from '../data/blog'
+import { billmateAchievements, billmateFeatures, billmateOverview } from '../data/billmate'
 import type { Achievement } from '../data/types'
 
 // ─── Components ───────────────────────────────────────────────────────────
@@ -185,7 +186,7 @@ export default function PDFPage() {
           className={`slide flex flex-col justify-center px-20 py-16 ${i % 2 === 0 ? "bg-zinc-950" : "bg-black"}`}
         >
           <div className="flex items-center gap-3 mb-2">
-            <p className="text-indigo-400 text-sm font-mono">03. Projects · 0{i + 1}/03</p>
+            <p className="text-indigo-400 text-sm font-mono">03. Projects · 0{i + 1}/04</p>
             <span className="text-xs font-mono text-indigo-300 bg-indigo-500/10 px-2 py-0.5 rounded-full">
               {project.tag}
             </span>
@@ -232,6 +233,8 @@ export default function PDFPage() {
           <span>하나제약 LIMS · 성과 2건</span>
           <span className="text-zinc-800">|</span>
           <span>개인 블로그 플랫폼 · 성과 5건</span>
+          <span className="text-zinc-800">|</span>
+          <span>BillMate · 성과 4건</span>
         </div>
       </div>
 
@@ -337,6 +340,45 @@ export default function PDFPage() {
         <AchievementDetailSlide
           key={item.number}
           projectName="개인 블로그 플랫폼"
+          item={item}
+          bg={i % 2 === 0 ? "black" : "zinc-950"}
+        />
+      ))}
+
+      {/* ── BillMate Overview ── */}
+      <div className="slide bg-zinc-950 flex flex-col justify-center px-20 py-14">
+        <p className="text-indigo-400 text-sm font-mono mb-2">{billmateOverview.tag} — 상세</p>
+        <h2 className="text-3xl font-bold text-white mb-6">BillMate</h2>
+        <div className="grid grid-cols-2 gap-12">
+          <div>
+            <p className="text-zinc-400 text-sm leading-7 mb-2">{billmateOverview.description1}</p>
+            <p className="text-zinc-400 text-sm leading-7 mb-2">{billmateOverview.description2}</p>
+            <p className="text-zinc-500 text-sm leading-7 mb-6">{billmateOverview.description3}</p>
+            <div className="flex flex-wrap gap-2">
+              {billmateOverview.tech.map((t) => (
+                <span key={t} className="px-2.5 py-1 bg-indigo-500/10 text-indigo-300 text-xs rounded-full font-mono">{t}</span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <p className="text-zinc-500 text-xs font-mono uppercase tracking-widest mb-4">주요 기능</p>
+            <div className="grid grid-cols-1 gap-2">
+              {billmateFeatures.map((f) => (
+                <div key={f} className="flex items-center gap-2 bg-zinc-900 border border-zinc-800 rounded-lg px-3 py-2.5">
+                  <span className="text-indigo-400 shrink-0 text-xs">▸</span>
+                  <span className="text-zinc-300 text-xs">{f}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── BillMate Achievements ── */}
+      {billmateAchievements.map((item, i) => (
+        <AchievementDetailSlide
+          key={item.number}
+          projectName="BillMate"
           item={item}
           bg={i % 2 === 0 ? "black" : "zinc-950"}
         />

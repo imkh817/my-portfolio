@@ -67,6 +67,17 @@ function ProjectCard({ project }: { project: Project }) {
               GitHub ↗
             </a>
           )}
+          {project.docs && (
+            <a
+              href={project.docs}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={(e) => e.stopPropagation()}
+              className="text-zinc-400 hover:text-white transition-colors text-sm"
+            >
+              Docs ↗
+            </a>
+          )}
           {project.demo && (
             <a
               href={project.demo}

@@ -197,7 +197,7 @@ export default function ResumePage() {
                 { label: 'Docs', href: 'https://github.com/imkh817/bill-mate/blob/master/README.md' },
                 { label: 'Demo', href: 'https://www.youtube.com/watch?v=LvoNzLt9rJ8&feature=youtu.be' },
               ]}
-              tech="Java · Spring Boot · MySQL · Slack Bolt · Claude Code"
+              tech="Java · Spring Boot · Spring Data JPA · MySQL · Slack Bolt · JUnit · Docker"
               bullets={[
                 {
                   title: 'Claude Code 기반 바이브 코딩으로 전체 설계 및 구현',

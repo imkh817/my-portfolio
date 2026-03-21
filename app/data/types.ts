@@ -18,6 +18,7 @@ export type Project = {
   highlights: string[]
   detailHref?: string
   github?: string
+  docs?: string
   demo?: string
 }
 

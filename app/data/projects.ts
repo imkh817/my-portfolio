@@ -40,4 +40,18 @@ export const projects: Project[] = [
     ],
     detailHref: '/projects/blog',
   },
+  {
+    tag: '사이드 프로젝트',
+    title: 'BillMate',
+    description:
+      'Slack 워크스페이스에서 구독 서비스를 등록·관리하는 슬래시 커맨드 봇. Claude Code 기반 바이브 코딩으로 3일 만에 단독 설계·구현하며 AI 협업 개발 역량을 검증했습니다.',
+    tech: ['Java', 'Spring Boot', 'Spring Data JPA', 'MySQL', 'Slack Bolt', 'JUnit', 'Docker'],
+    highlights: [
+      'Slack 3초 응답 제한 대응: ctx.ack() 즉시 응답 + @Async 비동기 처리로 타임아웃 완전 해소',
+      '멀티 워크스페이스 OAuth 설계: SlackInstallation 엔티티에 teamId별 bot token 독립 관리',
+      '상태 머신 기반 멀티턴 구독 등록 플로우: ConversationStep enum + ConcurrentHashMap으로 4단계 DM 상호작용 구현',
+      'CommandHandler 전략 패턴 적용: 신규 슬래시 커맨드 추가 시 기존 코드 수정 없이 확장',
+    ],
+    detailHref: '/projects/bill-mate',
+  },
 ]
